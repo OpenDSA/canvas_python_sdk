@@ -8,6 +8,7 @@ oauth_token = '7~98d8KnPbCj7wnA3GLyHIvh4yxHz7t2U6SPp7OLdvscWSN82qCnZbEWebFJVEb0b
 canvas_url = 'https://canvas.instructure.com/api'
 course_code = "OpenDSA"
 
+
 # init the request context
 request_ctx = RequestContext(oauth_token, canvas_url)
 

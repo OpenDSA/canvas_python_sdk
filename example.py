@@ -24,13 +24,13 @@ privacy_level = "public"
 consumer_key = "test"
 shared_secret = "secret"
 config_type = "by_url"
-config_url = "https://ltitest.herokuapp.com/tool_config.xml"
+config_url = "https://127.0.0.1:9443/tool_config.xml"
 
 # configure the course external_tool
-results = external_tools.create_external_tool_courses(
-    request_ctx, course_id, external_tool_name, privacy_level=privacy_level,
-    consumer_key=consumer_key, shared_secret=shared_secret,
-    config_type=config_type, config_url=config_url)
+# results = external_tools.create_external_tool_courses(
+#     request_ctx, course_id, external_tool_name, privacy_level=privacy_level,
+#     consumer_key=consumer_key, shared_secret=shared_secret,
+#     config_type=config_type, config_url=config_url)
 
 
 with open('CS3114.json') as data_file:
@@ -76,7 +76,7 @@ for chapter in chapters:
                         long_name,
                         assignment_submission_types="external_tool",
                         assignment_external_tool_tag_attributes={
-                            "url": "https://ltitest.herokuapp.com/lti_tool?problem_type=module&problem_url=CS3114/html/&short_name=" + module_name + "-" + str(exercise_counter).zfill(2)},
+                            "url": "https://127.0.0.1:9443/lti_tool?problem_type=module&problem_url=CS3114/html/&short_name=" + module_name + "-" + str(exercise_counter).zfill(2)},
                         assignment_points_possible=points,
                         assignment_description=long_name)
                     assignment_id = results.json().get("id")
@@ -91,7 +91,7 @@ for chapter in chapters:
             results = modules.create_module_item(
                 request_ctx, course_id, module_id,
                 'ExternalTool',
-                module_item_external_url="https://ltitest.herokuapp.com/lti_tool?problem_type=module&problem_url=CS3114/html/&short_name=" +
+                module_item_external_url="https://127.0.0.1:9443/lti_tool?problem_type=module&problem_url=CS3114/html/&short_name=" +
                 module_name + "-00",
                 module_item_content_id=None,
                 module_item_title=module_name + " Module",
